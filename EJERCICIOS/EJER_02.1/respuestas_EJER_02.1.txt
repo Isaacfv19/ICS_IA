@@ -1,0 +1,62 @@
+
+
+1. ¿En qué archivo está el punto de entrada de la aplicación? ¿Qué hace la función createRoot?
+
+El punto de entrada es el archivo src/main.jsx (el index.html lo carga con
+<script type="module" src="/src/main.jsx">).
+
+La función createRoot, importada de "react-dom/client", crea una raíz de React
+asociada a un elemento real del DOM. Con .render(...) se le indica qué
+componentes debe pintar dentro de esa raíz, y React se encarga de mantener el
+DOM sincronizado con el estado de la aplicación.
+
+
+2. ¿Cuál es el ID del elemento HTML donde se monta la aplicación? ¿En qué archivo está definido?
+
+El ID es "root". Está definido en el archivo index.html (en la raíz del
+proyecto) <div id="root"></div>. En main.jsx se recupera con
+document.getElementById('root').
+
+
+3. Dibuja el árbol de componentes que se renderiza al arrancar el proyecto recién creado.
+
+<StrictMode> -> <App /> -> (elementos HTML: logos, título, botón contador, textos...)
+
+App no renderiza otros componentes propios, solo elementos HTML/JSX.
+
+
+4. ¿Qué ocurre en la página si eliminas <StrictMode> de main.jsx? ¿Y en la consola en modo desarrollo?
+
+- En la página: no cambia nada visible; la aplicación se ve y funciona igual.
+- En la consola (modo desarrollo): StrictMode ejecuta dos veces ciertas
+  funciones (cuerpo de los componentes, inicializadores de estado, efectos...)
+  para detectar efectos secundarios y código impuro, y muestra avisos sobre
+  APIs obsoletas. Al quitarlo, un console.log dentro de un componente aparece
+  una sola vez en lugar de dos y desaparecen esos avisos extra.
+  En producción StrictMode no tiene ningún efecto.
+
+
+5. Abre App.jsx y localiza tres fragmentos de código JavaScript escritos entre llaves { } dentro del JSX. Explica qué hace cada uno.
+
+a) src={viteLogo} / src={reactLogo}
+   Inserta el valor de la variable importada (la ruta de la imagen) como
+   atributo src de la etiqueta <img>.
+
+b) onClick={() => setCount((count) => count + 1)}
+   Asigna una función manejadora al evento clic del botón. Al pulsarlo,
+   actualiza el estado sumando 1 al valor anterior.
+
+c) {count}
+   Muestra el valor actual del estado count dentro del texto del botón. Se
+   vuelve a pintar cada vez que el valor cambia.
+
+
+6. ¿Qué es el elemento <> que envuelve el JSX devuelto por App? ¿Genera algún elemento en el DOM? Compruébalo con las herramientas de desarrollo del navegador (pestaña Elementos).
+
+Es un Fragment de React (abreviatura de <React.Fragment>). Permite que un
+componente devuelva varios elementos hermanos sin necesidad de un contenedor
+extra, ya que JSX exige devolver un único elemento raíz.
+
+No genera ningún elemento en el DOM. Comprobación: en el navegador, F12 ->
+pestaña Elementos -> dentro de <div id="root"> aparecen directamente los hijos
+del fragmento, sin ninguna etiqueta intermedia.
