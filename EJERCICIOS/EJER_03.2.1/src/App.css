@@ -1,0 +1,117 @@
+.app {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1rem;
+  font-family: system-ui, sans-serif;
+}
+
+.rejilla {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.tarjeta {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.tarjeta h3 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.precio {
+  margin: 0;
+  font-weight: bold;
+}
+
+button {
+  cursor: pointer;
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  border: 1px solid #888;
+  background: #f4f4f4;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.lista-carrito {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.fila {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.5rem 1rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 0.75rem;
+}
+
+.fila-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.fila-cantidad {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.nota {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  font-size: 0.9rem;
+}
+
+.resumen {
+  border-top: 2px solid #333;
+  margin-top: 1rem;
+  padding-top: 0.5rem;
+}
+
+.resumen p {
+  margin: 0.25rem 0;
+}
+
+.total {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.barra {
+  height: 10px;
+  background: #e5e5e5;
+  border-radius: 5px;
+  overflow: hidden;
+  margin-top: 0.5rem;
+}
+
+.barra-relleno {
+  height: 100%;
+  background: #2e8b57;
+  transition: width 0.2s;
+}
+
+.aviso {
+  font-size: 0.9rem;
+}
+
+.vaciar {
+  margin-top: 1rem;
+}
