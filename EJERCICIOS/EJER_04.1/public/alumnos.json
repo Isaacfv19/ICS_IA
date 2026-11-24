@@ -1,0 +1,6 @@
+[
+  { "id": "a1", "nombre": "Lucía Fernández", "nota": 8 },
+  { "id": "a2", "nombre": "Mateo García", "nota": 4.5 },
+  { "id": "a3", "nombre": "Valeria Suárez", "nota": 9.5 },
+  { "id": "a4", "nombre": "Hugo Martín", "nota": 6 }
+]
